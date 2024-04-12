@@ -1,4 +1,7 @@
 import React from 'react'
+import Menu from '../components/Menu'
+import '../pages/App'
+import '../sass/_header.scss'
 
 function Header(){
     return(
