@@ -1,7 +1,7 @@
 import React from 'react'
-import Home from '../pages/Home'
-import Login from '../pages/Login'
-import Index from '../pages/Index'
+import Home from './Home'
+import Login from './Login'
+import Index from './Index'
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 
 const AppRouter = () =>{
