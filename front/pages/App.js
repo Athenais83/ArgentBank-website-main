@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Banner from '../components/Banner';
 import Footer from '../components/Footer';
+import Menu from '../components/Menu';
 import Form from '../components/Form';
 import '../pages/AppRouter';
 import '../pages/Home';
@@ -11,6 +12,7 @@ function App(){
         <>
         <div>
             <Header/>
+            <Menu/>
         </div>
         <div>
             <Banner/>
