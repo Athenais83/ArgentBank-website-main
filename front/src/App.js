@@ -5,7 +5,7 @@ import Header from 'src/components/Header';
 import Banner from 'src/components/Banner';
 import Footer from 'src/components/Footer';
 import Menu from './components/Menu';
-import '../AppRouter';
+import 'src/AppRouter';
 import 'src/pages/Home';
 
 function App(){
