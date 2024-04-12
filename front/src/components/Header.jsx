@@ -1,6 +1,6 @@
 import React from 'react'
 import Menu from './Menu'
-import '../pages/App'
+import '../App'
 import '../sass/_header.scss'
 
 function Header(){

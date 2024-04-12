@@ -1,4 +1,5 @@
 import React from 'react'
+import "../App"
 
 function Banner(){
     return(
@@ -7,3 +8,5 @@ function Banner(){
         </div>
     )
 }
+
+export default Banner
