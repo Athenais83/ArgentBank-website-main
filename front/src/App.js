@@ -3,7 +3,7 @@ import '../src/App.css';
 import React from 'react';
 import Header from './components/Header';
 import Banner from './components/Banner';
-import Footer from './components/Footer';
+import Footer from './components/footer';
 import Menu from './components/Menu';
 import './pages/AppRouter';
 import './pages/Home';
@@ -25,4 +25,4 @@ function App(){
     )
 }
 
-export default App;
+export default App
