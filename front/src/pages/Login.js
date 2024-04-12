@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Form from '../components/Form';
+import Header from 'src/components/Header';
+import Footer from 'src/components/Footer';
+import Form from 'src/components/Form';
 
 function Login (){
     return(

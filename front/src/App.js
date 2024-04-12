@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import '../src/App.css';
 import React from 'react';
-import Header from './components/Header';
-import Banner from './components/Banner';
-import Footer from './components/footer';
+import Header from 'src/components/Header';
+import Banner from 'src/components/Banner';
+import Footer from 'src/components/Footer';
 import Menu from './components/Menu';
-import './pages/AppRouter';
-import './pages/Home';
+import '../AppRouter';
+import 'src/pages/Home';
 
 function App(){
     return(
