@@ -1,5 +1,6 @@
-import React from "react"
-import "../App"
+import React from "react";
+import "../App";
+import '../sass/_footer.scss'
 
 function Footer(){
     return(
