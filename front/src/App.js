@@ -1,12 +1,15 @@
 import logo from './logo.svg';
 import '../src/App.css';
 import React from 'react';
-import Header from './components/Header';
-import Banner from './components/Banner';
-import Footer from './components/Footer';
-import Menu from './components/Menu';
-import './pages/AppRouter';
-import './pages/Home';
+import Header from '../src/components/Header';
+import Banner from '../src/components/Banner';
+import Footer from '../src/components/Footer';
+import Menu from '../src/components/Menu';
+
+import '../src/pages/AppRouter';
+import '../src/pages/Home';
+import '../src/pages/Login';
+
 
 function App(){
     return(
@@ -25,4 +28,4 @@ function App(){
     )
 }
 
-export default App
+export default App;
