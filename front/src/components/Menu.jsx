@@ -1,24 +1,24 @@
 import React from 'react';
 import "../App";
+import { Link, useLocation } from 'react-router-dom';
 
 function Menu (){
+  const location = useLocation();
     return(
-        <nav class="main-nav">
-        <a class="main-nav-logo" href="Home.js">
+        <>
+        <nav className='main-nav'>  
+        <Link to="/" className={location.pathname=== '/' ? 'main-nav-logo' : 'link active'}>Home</Link>
           <img
             class="main-nav-logo-image"
             src="./img/argentBankLogo.png"
             alt="Argent Bank Logo"
           />
           <h1 class="sr-only">Argent Bank</h1>
-        </a>
-        <div>
-          <a class="main-nav-item" href="Login.js">
+          <Link to="/Login" className={location.pathname==='/Login' ? 'main-nav-item' : 'link active'}>Sign in</Link>
             <i class="fa fa-user-circle"></i>
-            Sign In
-          </a>
-        </div>
       </nav>
+      </>
+      
     )
 }
 
