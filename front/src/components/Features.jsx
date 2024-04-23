@@ -5,7 +5,7 @@ function Features (){
         <section class="features">
         <h2 class="sr-only">Features</h2>
         <div class="feature-item">
-          <img src="./img/icon-chat.png" alt="Chat Icon" class="feature-icon" />
+          <img src="./src/img/icon-chat.png" alt="Chat Icon" class="feature-icon" />
           <h3 class="feature-item-title">You are our #1 priority</h3>
           <p>
             Need to talk to a representative? You can get in touch through our
@@ -14,7 +14,7 @@ function Features (){
         </div>
         <div class="feature-item">
           <img
-            src="./img/icon-money.png"
+            src="./src/img/icon-money.png"
             alt="Chat Icon"
             class="feature-icon"
           />
@@ -25,7 +25,7 @@ function Features (){
         </div>
         <div class="feature-item">
           <img
-            src="./img/icon-security.png"
+            src="./src/img/icon-security.png"
             alt="Chat Icon"
             class="feature-icon"
           />
