@@ -1,11 +1,14 @@
 import React from "react";
+import chatIcon from "../img/icon-chat.png";
+import moneyIcon from "../img/icon-money.png";
+import securityIcon from "../img/icon-security.png";
 
 function Features (){
     return(
         <section class="features">
         <h2 class="sr-only">Features</h2>
         <div class="feature-item">
-          <img src="./src/img/icon-chat.png" alt="Chat Icon" class="feature-icon" />
+          <img src={chatIcon} alt="Chat Icon" class="feature-icon" />
           <h3 class="feature-item-title">You are our #1 priority</h3>
           <p>
             Need to talk to a representative? You can get in touch through our
@@ -14,8 +17,8 @@ function Features (){
         </div>
         <div class="feature-item">
           <img
-            src="./src/img/icon-money.png"
-            alt="Chat Icon"
+            src={moneyIcon}
+            alt="Money Icon"
             class="feature-icon"
           />
           <h3 class="feature-item-title">More savings means higher rates</h3>
@@ -25,8 +28,8 @@ function Features (){
         </div>
         <div class="feature-item">
           <img
-            src="./src/img/icon-security.png"
-            alt="Chat Icon"
+            src={securityIcon}
+            alt="Security Icon"
             class="feature-icon"
           />
           <h3 class="feature-item-title">Security you can trust</h3>

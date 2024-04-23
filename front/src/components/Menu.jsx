@@ -1,6 +1,7 @@
 import React from 'react';
 import "../App";
 import { Link, useLocation } from 'react-router-dom';
+import '../sass/_header.scss'
 
 function Menu (){
   const location = useLocation();
@@ -10,7 +11,7 @@ function Menu (){
         <Link to="/" className={location.pathname=== '/' ? 'main-nav-logo' : 'link active'}>Home</Link>
           <img
             class="main-nav-logo-image"
-            src="./img/argentBankLogo.png"
+            src="../img/argentBankLogo.png"
             alt="Argent Bank Logo"
           />
           <h1 class="sr-only">Argent Bank</h1>
