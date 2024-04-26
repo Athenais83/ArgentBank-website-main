@@ -13,7 +13,7 @@ function MenuUser (){
         <h1 class="sr-only">Argent Bank</h1>
       </a>
       <div>
-        <a class="main-nav-item" href="./src.pages/Login.js">
+        <a class="main-nav-item" href="./src/pages/Login.js">
           <i class="fa fa-user-circle"></i>
           Tony
         </a>

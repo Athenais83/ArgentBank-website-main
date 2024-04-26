@@ -9,6 +9,7 @@ import Menu from '../src/components/Menu';
 import '../src/pages/AppRouter';
 import '../src/pages/Home';
 import '../src/pages/Login';
+import '../src/pages/User';
 
 
 function App(){

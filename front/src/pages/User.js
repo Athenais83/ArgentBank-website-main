@@ -6,12 +6,12 @@ import Accounts from '../components/Accounts';
 
 function User (){
     return(
-        <>
-        <HeaderUser/>
-        <MenuUser/>
-        <Accounts/>
-        <Footer />
-        </>
+        <body>
+            <HeaderUser/>
+            <MenuUser/>
+            <Accounts/>
+            <Footer />
+        </body>
     )
 }
 

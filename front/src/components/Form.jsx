@@ -20,7 +20,7 @@ function Form (){
         <div class="input-remember">
           <input type="checkbox" id="remember-me" /><label for="remember-me">Remember me</label>
         </div>
-        <a href="./user.html" class="sign-in-button">Sign In</a>
+        <a href=".../User.js" class="sign-in-button">Sign In</a>
         <button class="sign-in-button">Sign In</button>
       </form>
       </section>
