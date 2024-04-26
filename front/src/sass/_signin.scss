@@ -18,8 +18,8 @@
        margin-top: 0.5rem;
        border-color: #00bc7700;
        background-color: #00bc77;
-       color: black;
-       border-radius: 10px;
+       color:white;
+       text-decoration: underline;
        cursor: pointer;
        transition: all 0.2s ease-in-out;
        &:hover{
@@ -71,25 +71,13 @@
        }
     }
  }
-
+ 
  .main {
     flex: 1;
   }
-  
+
   .bg-dark {
     background-color: #12002b;
-  }
-
-  .sign-in-button {
-    display: block;
-    width: 100%;
-    padding: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-top: 1rem;
-    border-color: #00bc77;
-    background-color: #00bc77;
-    color: #fff;
   }
   
   .sign-in-content {

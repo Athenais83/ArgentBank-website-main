@@ -74,13 +74,13 @@ function SignIn() {
 
 
    return (
-      <main>
-         <section className="sign-in">
-            <i className="fa fa-user-circle sign-in-icon"></i>
-
+      <main className='bg-dark'>
+         <section className="sign-in-content">
+        <i class="fa fa-user-circle sign-in-icon"></i>
+        <h1>Sign In</h1>
             <form onSubmit={handleSignIn}>
                <div className="input-wrapper">
-                  <label htmlFor="username">Email</label>
+                  <label htmlFor="username">Username</label>
                   <input className={error ? 'sign-in__error-border' : ''} type="email" id="username" value={username} onChange={handleUsernameChange} required/>
                </div>
 
