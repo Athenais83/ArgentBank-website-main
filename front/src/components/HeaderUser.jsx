@@ -1,12 +1,14 @@
 import React from "react";
+import '../sass/_headerUser.scss'
+import MenuUser from "./MenuUser";
 
 
 function HeaderUser (){
     return(
-        <div class="header">
-        <h1>Welcome back<br />Tony Jarvis!</h1>
-        <button class="edit-button">Edit Name</button>
-      </div>
+       <section className='header'>
+       <img src="./src/img/argentBankLogo.png" alt='argent-bank' className='logo-argent-bank'/>
+       <MenuUser />
+   </section>
     )
 }
 

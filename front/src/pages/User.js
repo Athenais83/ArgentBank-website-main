@@ -1,14 +1,14 @@
 import React from 'react';
 import Footer from "../components/Footer";
 import HeaderUser from '../components/HeaderUser';
-import MenuUser from '../components/MenuUser';
 import Accounts from '../components/Accounts';
+import NameUser from '../components/NameUser';
 
 function User (){
     return(
         <body>
             <HeaderUser/>
-            <MenuUser/>
+            <NameUser />
             <Accounts/>
             <Footer />
         </body>
