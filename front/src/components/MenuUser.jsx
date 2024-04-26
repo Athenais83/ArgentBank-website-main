@@ -4,7 +4,7 @@ import '../sass/_menuUser.scss'
 function MenuUser (){
     return(
 
-        <nav className="main-nav">
+      <nav className="main-nav">
       <a className="main-nav-logo" href="/Home">
         <img
           className="main-nav-logo-image"

@@ -6,10 +6,9 @@ import '../sass/_header.scss'
 
 function Header(){
     return(
-        <section className='header'>
-            <img src="./src/img/argentBankLogo.png" alt='argent-bank' className='logo-argent-bank'/>
+        <header>
             <Menu />
-        </section>
+        </header>
     )
 }
 
