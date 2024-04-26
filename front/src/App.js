@@ -4,7 +4,6 @@ import { Route, Routes } from "react-router-dom";
 // PAGES
 import Home from "../src/pages/Home";
 import SignIn from "../src/pages/SignIn";
-import SignUp from "../src/pages/SignUp";
 import User from "../src/pages/User";
 import Error from "../src/pages/Error";
 
@@ -30,7 +29,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
         <Route path="/user" element={<User />} />
 
         <Route path="*" element={<Error />} />

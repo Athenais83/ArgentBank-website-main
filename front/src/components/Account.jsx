@@ -74,9 +74,6 @@ function Account() {
                <NavLink className='btn-user' to="/signin">
                   <p>Sign In</p>
                </NavLink>
-               <NavLink className='btn-user' to="/signup">
-                  <p>Sign Up</p>
-               </NavLink>
             </div>
             
          )}
