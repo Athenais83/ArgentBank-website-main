@@ -3,7 +3,7 @@ import '../sass/_accounts.scss'
 
 function Accounts (){
     return(
-        <div>
+        <div className=" main bg-dark">
         <h2 className="sr-only">Accounts</h2>
         <section className="account">
           <div className="account-content-wrapper">
