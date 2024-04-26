@@ -1,15 +1,27 @@
-import React from 'react';
-import Menu from './Menu';
-import '../App';
-import '../sass/_main.scss';
-import '../sass/_header.scss'
+// IMPORTS
+import { Link } from 'react-router-dom'
 
-function Header(){
-    return(
-        <header>
-            <Menu />
-        </header>
-    )
+import '../sass/_header.scss';
+import Account from '../components/Account'
+
+import Logo from '../img/argentBankLogo.png'
+
+
+
+function Header() {
+   return (
+      <header>
+         <nav className='cont-nav'>
+
+            <Link to="/">
+               <img className='logo-header' alt='Logo de Argent Bank' src={Logo} />
+            </Link>
+
+            <Account />
+
+         </nav>
+      </header>
+   )
 }
-
+ 
 export default Header

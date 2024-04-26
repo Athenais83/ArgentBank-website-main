@@ -1,45 +1,46 @@
-import logo from './logo.svg';
-import '../src/App.css';
-import '../src/sass/_app.scss';
-import React from 'react';
-import Header from '../src/components/Header';
-import Banner from '../src/components/Banner';
-import Footer from '../src/components/Footer';
-import Menu from '../src/components/Menu';
+// IMPORTS 
+import { Route, Routes } from "react-router-dom";
 
-import '../src/pages/AppRouter';
-import '../src/pages/Home';
-import '../src/pages/Login';
-import '../src/pages/User';
+// PAGES
+import Home from "../src/pages/Home";
+import SignIn from "../src/pages/SignIn";
+import SignUp from "../src/pages/SignUp";
+import User from "../src/pages/User";
+import Error from "../src/pages/Error";
+
+// LAYOUTS
+import Header from "../src/components/Header";
+import Footer from "../src/components/Footer";
+
+// COMPONENTS
+// import EditUser from "./components/EditUser/EditUser";
+// import Transactions from "./components/Transactions/Transactions";
+
+// STYLES
+import "../src/sass/_app.scss";
 
 
-import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
-import rootReducer from '../src/redux/reducers';
-import { loginMiddleware } from '../src/redux/middleware';
+// ROUTES & HEADER / FOOTER
+function App() {
+  return (
+    <>
+    <div className="contenair">
+      <Header />
 
-const store = configureStore({
-  reducer: rootReducer,
-  middleware: [loginMiddleware],
-});
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/user" element={<User />} />
 
-function App(){
-    return(
-        <Provider store={store}>
-        <>
-        <div>
-            <Header/>
-            <Menu/>
-        </div>
-        <div>
-            <Banner/>
-        </div>
-        <div>
-            <Footer/>
-        </div>
-        </>
-        </Provider>
-    )
+        <Route path="*" element={<Error />} />
+      </Routes>
+    
+    </div>
+      
+    <Footer />
+    </>
+  );
 }
 
 export default App;
