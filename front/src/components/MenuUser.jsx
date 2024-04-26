@@ -18,7 +18,7 @@ function MenuUser (){
           <i className="fa fa-user-circle"></i>
           Tony
         </a>
-        <a className="main-nav-item" href="/Home">
+        <a className="main-nav-item" href="/">
           <i className="fa fa-sign-out"></i>
           Sign Out
         </a>

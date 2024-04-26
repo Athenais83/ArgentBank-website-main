@@ -13,8 +13,19 @@ import '../src/pages/Login';
 import '../src/pages/User';
 
 
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import rootReducer from '../src/redux/reducers';
+import { loginMiddleware } from '../src/redux/middleware';
+
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: [loginMiddleware],
+});
+
 function App(){
     return(
+        <Provider store={store}>
         <>
         <div>
             <Header/>
@@ -27,6 +38,7 @@ function App(){
             <Footer/>
         </div>
         </>
+        </Provider>
     )
 }
 
