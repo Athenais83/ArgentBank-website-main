@@ -1,4 +1,3 @@
-// IMPORTS
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
@@ -11,9 +10,8 @@ function Account() {
 
    const dispatch = useDispatch();
 
-   const token = useSelector((state) => state.auth.token); // Récupération du token ds Redux
+   const token = useSelector((state) => state.auth.token); // Récupération du token dans Redux
    const username = useSelector((state) => state.name.username);
-   // console.log("DEBUG RECUP STATE" + token);
 
    const handleLogout = () => {
       dispatch({ // Enregistrement du token dans le store
