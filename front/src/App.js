@@ -1,25 +1,13 @@
-// IMPORTS 
 import { Route, Routes } from "react-router-dom";
-
-// PAGES
 import Home from "../src/pages/Home";
 import SignIn from "../src/pages/SignIn";
 import User from "../src/pages/User";
 import Error from "../src/pages/Error";
-
-// LAYOUTS
 import Header from "../src/components/Header";
 import Footer from "../src/components/Footer";
 
-// COMPONENTS
-// import EditUser from "./components/EditUser/EditUser";
-// import Transactions from "./components/Transactions/Transactions";
-
-// STYLES
 import "../src/sass/_app.scss";
 
-
-// ROUTES & HEADER / FOOTER
 function App() {
   return (
     <>
