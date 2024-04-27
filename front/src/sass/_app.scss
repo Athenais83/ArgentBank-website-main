@@ -14,10 +14,16 @@ html {
   }
 
   .contenair{
-    max-width: 1300px;
+    max-width: 100%;
     min-height: 93vh;
     margin: 0 auto;
     @media (min-width: 920px) {
-       width: 90%;
+       width: 100%;
     }
+ }
+
+ .main{
+  flex: 1;
+  width: 100%;
+  min-height: 81.8vh;
  }
