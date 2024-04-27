@@ -62,8 +62,8 @@ function Account() {
    return (
       <>
          {username ? (
-            <div className='cont-user bg-dark'>
-               <button className='sign-in-button' onClick={handleLogout}>Logout</button>
+            <div className='cont-user'>
+               <button className='sign-in-button' onClick={handleLogout}>Sign out</button>
                <NavLink className='btn-user' to="/user">
                   <i className="fas fa-user-circle"></i>
                   <p>{username}</p>
