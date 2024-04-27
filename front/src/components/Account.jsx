@@ -10,11 +10,11 @@ function Account() {
 
    const dispatch = useDispatch();
 
-   const token = useSelector((state) => state.auth.token); // Récupération du token dans Redux
+   const token = useSelector((state) => state.auth.token);
    const username = useSelector((state) => state.name.username);
 
    const handleLogout = () => {
-      dispatch({ // Enregistrement du token dans le store
+      dispatch({
          type: 'LOGOUT',
       });
    };
@@ -35,7 +35,7 @@ function Account() {
                const data = await response.json();
                console.log(data);
 
-               dispatch({ // Enregistrement des donées dans le store
+               dispatch({
                   type: 'SET_USER',
                   payload: {
                      username: data.body.userName,

@@ -6,20 +6,16 @@ import "../sass/_signin.scss";
 
 
 function SignIn() {
-   const dispatch = useDispatch(); // Récupération de la fonction dispatch du store
+   const dispatch = useDispatch(); 
 
-   // States
    const token = useSelector((state) => state.auth.token);
 
    const [username, setUsername] = useState(''); 
    const [password, setPassword] = useState('');
    const [error, setError] = useState('');
 
-   // Hooks
    const navigate = useNavigate();
 
-
-   // Fonction de gestion des changements de valeur des champs de formulaire
    const handleUsernameChange = (event) => { 
       setUsername(event.target.value);
    };
@@ -27,7 +23,6 @@ function SignIn() {
       setPassword(event.target.value);
    };
 
-   // Fonction de gestion de la soumission du formulaire
    const handleSignIn = (event) => {
       event.preventDefault();
       const userData = {
@@ -46,12 +41,12 @@ function SignIn() {
          .then(data => {
             console.log(data);
 
-            if (data.status !== 200) { // Gestion des erreurs
+            if (data.status !== 200) {
                setError(true);
                return;
             }
             else {
-               dispatch({ // Enregistrement du token dans le store
+               dispatch({
                   type: 'LOGIN',
                   payload: {
                   token: data.body.token,
@@ -65,7 +60,6 @@ function SignIn() {
          });
    };
 
-   // Si l'utilisateur est déjà connecté, on le redirige vers la page user
    useEffect(() => {
       if (token) {
          navigate("/user");
