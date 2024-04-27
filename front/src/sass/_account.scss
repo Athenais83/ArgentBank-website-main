@@ -24,9 +24,23 @@
   font-size: 1rem;
   background-color: #fff;
   cursor: pointer;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.btn-user:hover{
+   text-decoration: underline;
 }
 
 .sign-in-button{
    background-color: white;
    border: none;
+   font-weight: bold;
+   padding-right: 40px;
+   font-size: 15px;
+   color: #2c3e50;
+}
+
+.sign-in-button:hover{
+   text-decoration: underline;
 }
