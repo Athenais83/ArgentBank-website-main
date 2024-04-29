@@ -66,7 +66,7 @@ function EditUser() {
    return (
       <>
          <section className="account-header">
-            <h1 className='name'>Welcome back, <br></br>
+            <h1 className='name'>Welcome back <br></br>
             {firstname} {lastname}!</h1>
 
             {!showForm && (

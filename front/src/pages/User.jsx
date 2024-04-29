@@ -19,7 +19,7 @@ function User() {
    }, [token, navigate]);
 
    return (
-      <main className="main bg-dark">
+      <main className="main bg-dark-user">
 
          <EditUser />
          
