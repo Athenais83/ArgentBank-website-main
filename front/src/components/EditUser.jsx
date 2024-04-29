@@ -66,10 +66,11 @@ function EditUser() {
    return (
       <>
          <section className="account-header">
-            <h1 className='name'>Welcome back, {firstname} {lastname}!</h1>
+            <h1 className='name'>Welcome back, <br></br>
+            {firstname} {lastname}!</h1>
 
             {!showForm && (
-               <button className="transaction-button button" onClick={toggleForm}>Edit your name</button>
+               <button className="transaction-button button" onClick={toggleForm}>Edit name</button>
             )}
          </section>
 
