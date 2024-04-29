@@ -1,0 +1,133 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Argent Bank API documentation / Transactions API
+  description: Seconde partie du project Argent Bank
+host: localhost:3001
+basePath: /api/v1
+schemes:
+  - http
+paths:
+  /transactions:
+    get:
+      description: >-
+        visualiser toutes les transactions pour le mois en cours, groupées par
+        compte
+      security:
+        - tokenAuth: []
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized. Identifiants incorrects
+        '500':
+          description: Internal server error.
+  /transactions/{transactionId}:
+    get:
+      description: visualiser les détails d'une transaction
+      security:
+        - tokenAuth: []
+      parameters:
+        - name: transactionId
+          in: path
+          description: ID de la transaction
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK. Renvoi les détails de la transaction
+        '401':
+          description: Unauthorized. Identifiants incorrects
+        '404':
+          description: Transaction not found.
+        '500':
+          description: Internal server error.
+    put:
+      description: Modifier une information sur une transaction
+      security:
+        - tokenAuth: []
+      parameters:
+        - name: transactionId
+          in: path
+          description: ID de la transaction
+          required: true
+          type: string
+        - name: transaction
+          in: body
+          description: Object representant la nouvelle information
+          required: true
+          schema:
+            $ref: '#/definitions/Transaction'
+      responses:
+        '200':
+          description: OK. L'information a bien été modifier
+        '400':
+          description: Bad request. Vérifier les données
+        '401':
+          description: Unauthorized. Identifiants incorrects
+        '404':
+          description: Transaction not found.
+        '500':
+          description: Internal server error.
+    delete:
+      description: Supprimer une information sur une transaction
+      security:
+        - tokenAuth: []
+      parameters:
+        - name: transactionId
+          in: path
+          description: ID de la transaction
+          required: true
+          type: string
+      responses:
+        '204':
+          description: No content. L'information a bien été supprimer
+        '401':
+          description: Unauthorized. Identifiants incorrects
+        '404':
+          description: Transaction not found.
+        '500':
+          description: Internal server error.
+    post:
+      description: Ajouter une information sur une transaction
+      security:
+        - tokenAuth: []
+      parameters:
+        - name: transactionId
+          in: path
+          description: ID de la transaction
+          required: true
+          type: string
+        - name: info
+          in: body
+          description: Object representant l'information ajoutée
+          required: true
+          schema:
+            $ref: '#/definitions/Transaction'
+      responses:
+        '201':
+          description: Created. L'information a bien été ajoutée
+        '400':
+          description: Bad request. Vérifier les données
+        '401':
+          description: Unauthorized. Identifiants incorrects
+        '404':
+          description: Transaction not found.
+        '500':
+          description: Internal server error.
+securityDefinitions:
+  tokenAuth:
+    type: apiKey
+    name: Authorization
+    in: header
+    description: >-
+      Token-based authentication. Provide the token in the format 'Bearer
+      {token}'.
+definitions:
+  Transaction:
+    type: object
+    properties:
+      id:
+        type: string
+      description:
+        type: string
