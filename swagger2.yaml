@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: '1.0'
   title: Argent Bank API documentation / Transactions API
-  description: Seconde partie du project Argent Bank
+  description: Seconde partie du projet Argent Bank
 host: localhost:3001
 basePath: /api/v1
 schemes:
@@ -11,22 +11,27 @@ paths:
   /transactions:
     get:
       description: >-
-        visualiser toutes les transactions pour le mois en cours, groupées par
+        Visualiser toutes les transactions pour le mois en cours, groupées par
         compte
       security:
-        - tokenAuth: []
+        - bearer: []
       responses:
         '200':
-          description: OK
+          description: Succès
+          schema:
+            type: array 
+            items:
+              $ref: '#/definitions/transaction'
         '401':
-          description: Unauthorized. Identifiants incorrects
+          description: Non autorisé. Identifiants incorrects
         '500':
-          description: Internal server error.
-  /transactions/{transactionId}:
+          description: Erreur serveur
+  
+  /transactions/transactionId:
     get:
-      description: visualiser les détails d'une transaction
+      description: Visualiser les détails d'une transaction
       security:
-        - tokenAuth: []
+        - bearer: []
       parameters:
         - name: transactionId
           in: path
@@ -35,99 +40,81 @@ paths:
           type: string
       responses:
         '200':
-          description: OK. Renvoi les détails de la transaction
+          description: Succès. Renvoi les détails de la transaction
+          schema:
+            $ref: '#/definitions/transactionId'
         '401':
-          description: Unauthorized. Identifiants incorrects
+          description: Non autorisé. Identifiants incorrects
         '404':
-          description: Transaction not found.
+          description: Transaction non trouvée.
         '500':
-          description: Internal server error.
+          description: Erreur serveur
+  /transactions/transactionUpdate:
     put:
-      description: Modifier une information sur une transaction
+      description: Modifier la description ou le titre d'une transaction
       security:
-        - tokenAuth: []
+        - bearer: []
       parameters:
-        - name: transactionId
-          in: path
+        - in: path
+          name: transactionUpdate
           description: ID de la transaction
           required: true
           type: string
-        - name: transaction
-          in: body
-          description: Object representant la nouvelle information
+        - in: body
+          name: transaction
+          description: Object représentant la nouvelle information
           required: true
-          schema:
-            $ref: '#/definitions/Transaction'
+          type: string
       responses:
         '200':
-          description: OK. L'information a bien été modifier
-        '400':
-          description: Bad request. Vérifier les données
-        '401':
-          description: Unauthorized. Identifiants incorrects
-        '404':
-          description: Transaction not found.
-        '500':
-          description: Internal server error.
-    delete:
-      description: Supprimer une information sur une transaction
-      security:
-        - tokenAuth: []
-      parameters:
-        - name: transactionId
-          in: path
-          description: ID de la transaction
-          required: true
-          type: string
-      responses:
-        '204':
-          description: No content. L'information a bien été supprimer
-        '401':
-          description: Unauthorized. Identifiants incorrects
-        '404':
-          description: Transaction not found.
-        '500':
-          description: Internal server error.
-    post:
-      description: Ajouter une information sur une transaction
-      security:
-        - tokenAuth: []
-      parameters:
-        - name: transactionId
-          in: path
-          description: ID de la transaction
-          required: true
-          type: string
-        - name: info
-          in: body
-          description: Object representant l'information ajoutée
-          required: true
+          description: Succès. La description ou le titre de la transaction a bien été modifié
           schema:
-            $ref: '#/definitions/Transaction'
-      responses:
-        '201':
-          description: Created. L'information a bien été ajoutée
+            type: array
+            items:
+              $ref:'#/definitions/transactionUpdate'
         '400':
-          description: Bad request. Vérifier les données
+          description: Echec. Vérifier les données
         '401':
-          description: Unauthorized. Identifiants incorrects
+          description: Non autorisé. Identifiants incorrects
         '404':
-          description: Transaction not found.
+          description: Transaction non trouvée.
         '500':
-          description: Internal server error.
+          description: Erreur serveur
+
 securityDefinitions:
-  tokenAuth:
+  bearer:
     type: apiKey
     name: Authorization
     in: header
-    description: >-
-      Token-based authentication. Provide the token in the format 'Bearer
-      {token}'.
 definitions:
-  Transaction:
+  transaction:
+    type: object
+    properties:
+      montant: 
+        type: number
+      description:
+        type: string
+      titre: 
+        type: string
+        
+  transactionId:
     type: object
     properties:
       id:
         type: string
+      montant: 
+        type: number
       description:
+        type: string
+      titre: 
+        type: string
+      date_transaction: 
+        type: number
+
+  transactionUpdate:
+    type: object
+    properties:
+      description:
+        type: string
+      titre:
         type: string
