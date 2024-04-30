@@ -61,15 +61,17 @@ function Account() {
       <>
          {username ? (
             <div className='cont-user'>
-               <i className="fa fa-user-circle icon-sign-in"></i>
-               <NavLink className='btn-user' to="/user">   
+               <NavLink className='btn-user' to="/user">
+                  <i className="fa fa-user-circle"></i>
                   <p>{username}</p>
                </NavLink>
-               <button className='sign-in-button' onClick={handleLogout}>Sign out</button>
+               <i className="fa fa-sign-out"></i> 
+               <button className='sign-in-button' onClick={handleLogout}>Sign Out</button>
             </div>
          ) : (
             <div className='cont-user'>
                <NavLink className='btn-user' to="/signin">
+                  <i className="fa fa-user-circle"></i>
                   <p>Sign In</p>
                </NavLink>
             </div>
