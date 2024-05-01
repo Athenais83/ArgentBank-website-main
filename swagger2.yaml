@@ -33,8 +33,8 @@ paths:
       security:
         - bearer: []
       parameters:
-        - name: transactionId
-          in: path
+        - in: path
+          name: transactionId
           description: ID de la transaction
           required: true
           type: string
@@ -51,27 +51,26 @@ paths:
           description: Erreur serveur
   /transactions/transactionUpdate:
     put:
-      description: Modifier la description ou le titre d'une transaction
+      description: Ajouter, Modifier ou supprimer une le titre ou la description d'une transaction
       security:
         - bearer: []
       parameters:
         - in: path
-          name: transactionUpdate
+          name: transactionId
           description: ID de la transaction
           required: true
           type: string
         - in: body
-          name: transaction
+          name: transactionUpdate
           description: Object représentant la nouvelle information
           required: true
-          type: string
+          schema:
+            $ref: '#/definitions/transactionUpdate'
       responses:
         '200':
-          description: Succès. La description ou le titre de la transaction a bien été modifié
+          description: Succès. La description ou le titre de la transaction a bien été ajoutée, modifiée ou supprimer 
           schema:
-            type: array
-            items:
-              $ref:'#/definitions/transactionUpdate'
+            $ref: '#/definitions/transaction'
         '400':
           description: Echec. Vérifier les données
         '401':
@@ -109,6 +108,7 @@ definitions:
       titre: 
         type: string
       date_transaction: 
+        format: date-time
         type: number
 
   transactionUpdate:
