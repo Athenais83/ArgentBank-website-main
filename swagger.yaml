@@ -69,7 +69,7 @@ paths:
        # - application/json
       responses:
         '200':
-          description: User profile retrieved successully
+          description: User profile retrieved successfully
           schema:
             $ref: '#/definitions/ApiResponse'
         '400':
@@ -94,13 +94,85 @@ paths:
         - application/json
       responses:
         '200':
-          description: User profile retrieved successully
+          description: User profile updated successfully
           schema:
             $ref: '#/definitions/ApiResponse'
         '400':
           description: Invalid Fields
         '500':
           description: Internal Server Error
+  /transactions:
+    get:
+      description: >-
+        Visualiser toutes les transactions pour le mois en cours, groupées par
+        compte
+      security:
+        - Bearer: []
+      responses:
+        '200':
+          description: Succès
+          schema:
+            type: array 
+            items:
+              $ref: '#/definitions/transaction'
+        '401':
+          description: Non autorisé. Identifiants incorrects
+        '500':
+          description: Erreur serveur
+  
+  /transactions/{transactionId}:
+    get:
+      description: Visualiser les détails d'une transaction
+      security:
+        - Bearer: []
+      parameters:
+        - in: path
+          name: transactionId
+          description: ID de la transaction
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Succès. Renvoi les détails de la transaction
+          schema:
+            $ref: '#/definitions/transaction'
+        '401':
+          description: Non autorisé. Identifiants incorrects
+        '404':
+          description: Transaction non trouvée.
+        '500':
+          description: Erreur serveur
+          
+    put:
+      description: Ajouter, Modifier ou supprimer une le titre ou la description d'une transaction
+      security:
+        - Bearer: []
+      parameters:
+        - in: path
+          name: transactionId
+          description: ID de la transaction
+          required: true
+          type: string
+        - in: body
+          name: transactionUpdate
+          description: Object représentant la nouvelle information
+          required: true
+          schema:
+            $ref: '#/definitions/transactionUpdate'
+      responses:
+        '200':
+          description: Succès. La description ou le titre de la transaction a bien été ajoutée, modifiée ou supprimée 
+          schema:
+            $ref: '#/definitions/transaction'
+        '400':
+          description: Échec. Vérifier les données
+        '401':
+          description: Non autorisé. Identifiants incorrects
+        '404':
+          description: Transaction non trouvée.
+        '500':
+          description: Erreur serveur
+
 securityDefinitions:
   Bearer:
     type: apiKey
@@ -156,98 +228,8 @@ definitions:
     properties:
       userName:
         type: string
-schemes:
-  - http
-paths:
-  /transactions:
-    get:
-      description: >-
-        Visualiser toutes les transactions pour le mois en cours, groupées par
-        compte
-      security:
-        - bearer: []
-      responses:
-        '200':
-          description: Succès
-          schema:
-            type: array 
-            items:
-              $ref: '#/definitions/transaction'
-        '401':
-          description: Non autorisé. Identifiants incorrects
-        '500':
-          description: Erreur serveur
   
-  /transactions/transactionId:
-    get:
-      description: Visualiser les détails d'une transaction
-      security:
-        - bearer: []
-      parameters:
-        - in: path
-          name: transactionId
-          description: ID de la transaction
-          required: true
-          type: string
-      responses:
-        '200':
-          description: Succès. Renvoi les détails de la transaction
-          schema:
-            $ref: '#/definitions/transactionId'
-        '401':
-          description: Non autorisé. Identifiants incorrects
-        '404':
-          description: Transaction non trouvée.
-        '500':
-          description: Erreur serveur
-  /transactions/transactionUpdate:
-    put:
-      description: Ajouter, Modifier ou supprimer une le titre ou la description d'une transaction
-      security:
-        - bearer: []
-      parameters:
-        - in: path
-          name: transactionId
-          description: ID de la transaction
-          required: true
-          type: string
-        - in: body
-          name: transactionUpdate
-          description: Object représentant la nouvelle information
-          required: true
-          schema:
-            $ref: '#/definitions/transactionUpdate'
-      responses:
-        '200':
-          description: Succès. La description ou le titre de la transaction a bien été ajoutée, modifiée ou supprimer 
-          schema:
-            $ref: '#/definitions/transaction'
-        '400':
-          description: Echec. Vérifier les données
-        '401':
-          description: Non autorisé. Identifiants incorrects
-        '404':
-          description: Transaction non trouvée.
-        '500':
-          description: Erreur serveur
-
-securityDefinitions:
-  bearer:
-    type: apiKey
-    name: Authorization
-    in: header
-definitions:
   transaction:
-    type: object
-    properties:
-      montant: 
-        type: number
-      description:
-        type: string
-      titre: 
-        type: string
-        
-  transactionId:
     type: object
     properties:
       id:
@@ -260,7 +242,7 @@ definitions:
         type: string
       date_transaction: 
         format: date-time
-        type: number
+        type: string
 
   transactionUpdate:
     type: object
